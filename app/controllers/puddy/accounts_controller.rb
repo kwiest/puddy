@@ -4,7 +4,7 @@ module Puddy
     end
 
     def show
-      @account = Account.find params[:id]
+      @account = AccountDecorator.new(Account.find(params[:id]))
     end
   end
 end
