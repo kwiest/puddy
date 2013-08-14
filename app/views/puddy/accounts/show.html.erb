@@ -1,6 +1,17 @@
 <h1><%= @account.name %></h1>
+<%= @account.print_address %>
+<%= @account.print_contact_info %>
 
-<h2>Account camps</h2>
+<h3>Account camps</h3>
+<ul>
+  <% @account.camps.each do |camp| %>
+    <li><%= link_to camp.name %></li>
+  <% end %>
+</ul>
 
-
-<h2>Account invoices</h2>
+<h3>Account invoices</h3>
+<ul>
+  <% @account.invoices.each do |invoice| %>
+    <li><%= link_to invoice.total_due.format %></li>
+  <% end %>
+</ul>
