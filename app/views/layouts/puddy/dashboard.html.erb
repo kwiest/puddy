@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Puddy</title>
+  <%= stylesheet_link_tag    "puddy/application", :media => "all" %>
+  <%= javascript_include_tag "puddy/application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<header>
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <%= link_to 'Camp Registration Systems Dashboard',
+          root_path, class: 'brand' %>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span4 well sidebar">
+      <ul>
+        <% accounts.each do |account| %>
+          <li><%= link_to account.name, account %></li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="span8 well main-content">
+      <%= yield%>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
