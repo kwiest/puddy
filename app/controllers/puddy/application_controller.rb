@@ -1,13 +1,11 @@
-module Puddy
-  class ApplicationController < ActionController::Base
-    layout 'puddy/dashboard'
+class Puddy::ApplicationController < ActionController::Base
+  layout 'puddy/dashboard'
 
-    helper_method :accounts
+  helper_method :accounts
 
-    protected
+  protected
 
-    def accounts
-      Account.order :name
-    end
+  def accounts
+    Account.order :name
   end
 end
