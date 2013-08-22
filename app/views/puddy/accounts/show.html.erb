@@ -12,6 +12,6 @@
 <h3>Account invoices</h3>
 <ul>
   <% @account.invoices.each do |invoice| %>
-    <li><%= link_to invoice.total_due.format %></li>
+    <li><%= link_to invoice.total_due.format, main_app.invoice_path(invoice) %></li>
   <% end %>
 </ul>
