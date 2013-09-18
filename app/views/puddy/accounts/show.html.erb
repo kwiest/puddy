@@ -10,8 +10,24 @@
 </ul>
 
 <h3>Account invoices</h3>
-<ul>
-  <% @account.invoices.each do |invoice| %>
-    <li><%= link_to invoice.amount.format, main_app.invoice_path(invoice) %></li>
-  <% end %>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Amount</th>
+      <th>Status</th>
+      <th>View PDF</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @account.invoices.each do |invoice| %>
+      <tr>
+        <td><%= invoice.date %></td>
+        <td><%= invoice.amount.format %></td>
+        <td><%= invoice.state %></td>
+        <td><%= link_to 'View PDF', main_app.invoice_path(invoice) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 </ul>
