@@ -39,7 +39,7 @@ module Puddy
         count
 
       week_over_week = campers_this_week - two_weeks_ago
-      week_over_week >= 0 ? "+#{week_over_week}" : "-#{week_over_week}"
+      week_over_week >= 0 ? "+#{week_over_week}" : "#{week_over_week}"
     end
   end
 end
