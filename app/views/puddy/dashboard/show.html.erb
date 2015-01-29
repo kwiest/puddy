@@ -1,5 +1,15 @@
-<h2>Transactions Total</h2>
-<p>
-  <%= number_with_delimiter @dashboard.successful_transactions_count %>
-  transactions processed for a total of: <%= @dashboard.successful_transactions_total %>.
-</p>
+<h2>Transactions</h2>
+<div class="span3 stat">
+  <h4><%= number_with_delimiter @dashboard.successful_transactions_count %></h4>
+  <h6>Successful transactions</h6>
+</div>
+
+<div class="span3 stat">
+  <h4><%= @dashboard.successful_transactions_this_week %></h4>
+  <h6>Transactions this week</h6>
+</div>
+
+<div class="span3 stat">
+  <h4><%= @dashboard.successful_transactions_total %></h4>
+  <h6>Total money processed</h6>
+</div>
