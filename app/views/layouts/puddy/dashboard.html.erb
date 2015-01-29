@@ -12,20 +12,19 @@
   <div class="row-fluid">
     <div class="span2 well sidebar">
       <ul class="nav nav-list">
-        <li>Transactions</li>
-        <ul>
-          <li>
-            <%= link_to "All transactions", puddy.transactions_path %>
-          </li>
-          <li>
-            <%= link_to "Successful transactions",
-              puddy.successful_transactions_path %>
-          </li>
-          <li>
-            <%= link_to "Failed transactions",
-              puddy.failed_transactions_path %>
-          </li>
-        </ul>
+        <li><%= link_to 'Home', root_path %></li>
+
+        <li class="divider"></li>
+
+        <li class="nav-header">Transactions</li>
+        <li><%= link_to "All transactions", transactions_path %></li>
+        <li><%= link_to "Successful", successful_transactions_path %></li>
+        <li><%= link_to "Failed", failed_transactions_path %></li>
+
+        <li class="divider"></li>
+
+        <li class="nav-header">Accounts</li>
+        <li><%= link_to 'All accounts', accounts_path %></li>
       </ul>
     </div>
 
