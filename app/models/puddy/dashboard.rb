@@ -26,7 +26,7 @@ module Puddy
     end
 
     def campers_this_week
-      Camper.confirmed.
+      @campers_this_week ||= Camper.confirmed.
         order(:created_at).
         where(created_at: 1.week.ago..Date.today).
         count
