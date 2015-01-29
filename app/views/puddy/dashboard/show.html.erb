@@ -1,15 +1,32 @@
 <h2>Transactions</h2>
 <div class="span3 stat">
-  <h4><%= number_with_delimiter @dashboard.successful_transactions_count %></h4>
+  <h4><%= number_with_delimiter @dashboard.transactions_count %></h4>
   <h6>Successful transactions</h6>
 </div>
 
 <div class="span3 stat">
-  <h4><%= @dashboard.successful_transactions_this_week %></h4>
+  <h4><%= @dashboard.transactions_this_week %></h4>
   <h6>Transactions this week</h6>
 </div>
 
 <div class="span3 stat">
-  <h4><%= @dashboard.successful_transactions_total %></h4>
+  <h4><%= @dashboard.transactions_money_total %></h4>
   <h6>Total money processed</h6>
+</div>
+<div class="clearfix"></div>
+
+<h2>Campers</h2>
+<div class="span3 stat">
+  <h4><%= number_with_delimiter @dashboard.campers_count %></h4>
+  <h6>Total campers</h6>
+</div>
+
+<div class="span3 stat">
+  <h4><%= @dashboard.campers_this_week %></h4>
+  <h6>Sign ups this week</h6>
+</div>
+
+<div class="span3 stat">
+  <h4><%= @dashboard.campers_week_over_week %></h4>
+  <h6>Week over week</h6>
 </div>
