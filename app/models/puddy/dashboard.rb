@@ -38,8 +38,13 @@ module Puddy
         where(created_at: 2.week.ago..1.weeks.ago).
         count
 
-      week_over_week = campers_this_week - two_weeks_ago
-      week_over_week >= 0 ? "+#{week_over_week}" : "#{week_over_week}"
+      begin
+        week_over_week = ((campers_this_week - two_weeks_ago) / campers_this_week) * 100
+      rescue ZeroDivisionError => e
+        week_over_week = 0.0
+      end
+
+      week_over_week >= 0 ? "+ #{week_over_week}%" : "- #{week_over_week}%"
     end
   end
 end
