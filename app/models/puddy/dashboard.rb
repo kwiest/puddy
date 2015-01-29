@@ -35,7 +35,7 @@ module Puddy
     def campers_week_over_week
       two_weeks_ago = Camper.confirmed.
         order(:created_at).
-        where(created_at: 2.week.ago..1.weeks.ago).
+        where(created_at: 2.weeks.ago..1.week.ago).
         count
 
       begin
@@ -44,7 +44,7 @@ module Puddy
         week_over_week = 0.0
       end
 
-      week_over_week >= 0 ? "+ #{week_over_week}%" : "- #{week_over_week}%"
+      week_over_week >= 0 ? "+ #{week_over_week}%" : "#{week_over_week}%"
     end
   end
 end
