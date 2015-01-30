@@ -32,19 +32,33 @@ module Puddy
         count
     end
 
-    def campers_week_over_week
-      two_weeks_ago = Camper.confirmed.
+    def campers_two_weeks_ago
+      @campers_two_weeks_ago ||= Camper.confirmed.
         order(:created_at).
         where(created_at: 2.weeks.ago..1.week.ago).
         count
+    end
 
-      begin
-        week_over_week = ((campers_this_week - two_weeks_ago) / campers_this_week) * 100
-      rescue ZeroDivisionError => e
-        week_over_week = 0.0
+    def campers_week_over_week
+      v1 = campers_this_week.to_f
+      v2 = campers_two_weeks_ago.to_f
+      week_over_week = ((v1 - v2)/(v1 == 0.0 ? 1 : v1)*100.0).round 2
+
+      case
+      when week_over_week == 0.0 then "0.0%"
+      when week_over_week > 0.0
+        %Q{<span class="change-up">
+          <b class="icon icon-chevron-up"></b>
+          #{week_over_week}%
+        </span>
+        }.html_safe
+      when week_over_week < 0.0 then
+        %Q{<span class="change-down">
+          <b class="icon icon-chevron-down"></b>
+          #{week_over_week.abs}%
+        </span>
+        }.html_safe
       end
-
-      week_over_week >= 0 ? "+ #{week_over_week}%" : "#{week_over_week}%"
     end
   end
 end
