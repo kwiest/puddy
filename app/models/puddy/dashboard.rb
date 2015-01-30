@@ -28,14 +28,14 @@ module Puddy
     def campers_this_week
       @campers_this_week ||= Camper.confirmed.
         order(:created_at).
-        where(created_at: 1.week.ago..Date.today).
+        where(created_at: 1.week.ago.to_date..Date.today).
         count
     end
 
     def campers_two_weeks_ago
       @campers_two_weeks_ago ||= Camper.confirmed.
         order(:created_at).
-        where(created_at: 2.weeks.ago..1.week.ago).
+        where(created_at: 2.weeks.ago.to_date..1.week.ago.to_date).
         count
     end
 
