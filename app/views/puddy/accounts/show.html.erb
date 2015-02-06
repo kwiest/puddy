@@ -20,12 +20,12 @@
     </tr>
   </thead>
   <tbody>
-    <% @account.invoices.each do |invoice| %>
+    <% @invoices.each do |invoice| %>
       <tr>
         <td><%= invoice.date %></td>
         <td><%= invoice.amount.format %></td>
         <td><%= invoice.state %></td>
-        <td><%= link_to 'View PDF', main_app.invoice_path(invoice) %></td>
+        <td><%= link_to 'View PDF', account_invoice_path(@account, invoice) %></td>
       </tr>
     <% end %>
   </tbody>

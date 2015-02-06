@@ -1,8 +1,6 @@
-require 'state_machine'
-
 module Puddy
   class Invoice < ActiveRecord::Base
-    belongs_to :account
+    belongs_to :account, class_name: '::Account'
 
     validates :month, presence: true
     validates :year,  presence: true
