@@ -6,6 +6,6 @@ class Puddy::AccountsController < Puddy::ApplicationController
   def show
     account_model = Account.find params[:id]
     @account = AccountDecorator.new account_model
-    @invoices = account_model.invoices.order :created_at
+    @invoices = account_model.invoices.order :year, :month
   end
 end
