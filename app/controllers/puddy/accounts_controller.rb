@@ -1,7 +1,7 @@
 module Puddy
   class AccountsController < ApplicationController
     def index
-      @accounts = ::Account.order(:name)
+      @accounts = ::Account.order :name
     end
 
     def show
