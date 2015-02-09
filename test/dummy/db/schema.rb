@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150206165124) do
+ActiveRecord::Schema.define(:version => 20131022220220) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -160,6 +160,18 @@ ActiveRecord::Schema.define(:version => 20150206165124) do
     t.string   "amount_currency", :default => "USD"
   end
 
+  create_table "invoices", :force => true do |t|
+    t.integer  "account_id"
+    t.integer  "month"
+    t.integer  "year"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "payable"
+    t.integer  "amount_cents",    :default => 0
+    t.string   "amount_currency", :default => "USD"
+    t.string   "state",           :default => "pending"
+  end
+
   create_table "payment_gateways", :force => true do |t|
     t.integer  "account_id"
     t.string   "type"
@@ -182,18 +194,6 @@ ActiveRecord::Schema.define(:version => 20150206165124) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "amount_currency", :default => "USD"
-  end
-
-  create_table "puddy_invoices", :force => true do |t|
-    t.integer  "account_id"
-    t.integer  "month"
-    t.integer  "year"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.boolean  "payable"
-    t.integer  "amount_cents",    :default => 0
-    t.string   "amount_currency", :default => "USD"
-    t.string   "state",           :default => "pending"
   end
 
   create_table "questions", :force => true do |t|
