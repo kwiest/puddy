@@ -1,7 +1,5 @@
-module Puddy
-  class DashboardController < ApplicationController
-    def show
-      @dashboard = Puddy::Dashboard.new
-    end
+class Puddy::DashboardController < Puddy::ApplicationController
+  def show
+    @dashboard = Puddy::Dashboard.new
   end
 end
