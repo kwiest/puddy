@@ -4,12 +4,12 @@ class Puddy::InvoicesController < Puddy::ApplicationController
   before_filter :assign_account
 
   def show
-    invoice = Invoice.find params[:id]
+    invoice = Puddy::Invoice.find params[:id]
 
     if @account.use_system_gateway?
-      pdf = PayablePDF.new invoice
+      pdf = Puddy::PayablePDF.new invoice
     else
-      pdf = ReceivablePDF.new invoice
+      pdf = Puddy::ReceivablePDF.new invoice
     end
 
     self.response.headers['Content-Type'] = 'application/pdf'
