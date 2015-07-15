@@ -4,14 +4,15 @@
 
 <div id="transactions-list">
   <% @transactions.each do |transaction| %>
-    <%= link_to transaction, class: (transaction.success? ? 'success' : 'failed') do %>
+    <%= div_for transaction, class: transaction_class(transaction) do %>
+      <span class="account-name"><%= transaction.account.name %></span>
       <span class="amount"><%= transaction.amount.format %></span>
       <span class="description">
         <%= "#{transaction.payment.source.camp.name} - 
         #{transaction.payment.source.name}" %>
       </span>
       <span class="status"><%= 'failed' unless transaction.success? %></span>
-      <span class="date"><%= transaction.created_at.strftime("%F %r") %></span>
+      <span class="date"><%= transaction.created_at.strftime("%b %-d, %Y") %></span>
       <span class="more"><i class="icon-chevron-right"></i></span>
     <% end %>
   <% end %>

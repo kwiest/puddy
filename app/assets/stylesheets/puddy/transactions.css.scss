@@ -1,0 +1,71 @@
+@import 'variables-mixins';
+
+.transaction-success {
+  color: green;
+}
+
+.transaction-failed {
+  color: red;
+}
+
+#transactions-list {
+  margin-bottom: 30px;
+
+  .transaction {
+    margin: 0;
+    padding: 6px;
+    text-decoration: none;
+    border-top: none;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+
+    span {
+      display: table-cell;
+      font-size: 12px;
+      padding: 0 6px;
+
+      &.account-name {
+        width: 150px;
+      }
+
+      &.amount {
+        color: #333;
+        width: 80px;
+      }
+
+      &.description {
+        font-weight: bold;
+        width: 240px;
+      }
+
+      &.status {
+        width: 50px;
+      }
+
+      &.date {
+        color: #666;
+        width: 100px;
+      }
+
+      &.more {
+        color: #666;
+        width: 20px;
+      }
+    }
+
+    &:first-child {
+      border-top: 1px solid #eee;
+    }
+
+    &.failed span {
+      color: #ccc;
+    }
+
+    &:hover {
+      background-color: #f9f9f9;
+    }
+
+  }
+
+}
