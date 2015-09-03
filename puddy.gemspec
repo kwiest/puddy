@@ -18,8 +18,9 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", "~> 4.2.4"
   s.add_dependency "prawn", "~> 0.12.0"
   s.add_dependency "monetizable"
-  s.add_dependency "state_machine", "~> 1.1.2"
+  s.add_dependency "state_machine", "~> 1.2.0"
 
+  s.add_development_dependency "mocha", "~> 1.1.0"
   s.add_development_dependency "pg", "~> 0.16.0"
-  s.add_development_dependency "shoulda", "~> 3.1.1"
+  s.add_development_dependency "shoulda", "~> 3.5.0"
 end

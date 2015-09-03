@@ -1,7 +1,7 @@
 require 'test_helper'
 
 module Puddy
-  class InvoiceLineItemTest < MiniTest::Unit::TestCase
+  class InvoiceLineItemTest < Minitest::Test
     # Should have a transaction
     # should calculate crs fee
     # should calculate gateway fee

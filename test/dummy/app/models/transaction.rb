@@ -1,8 +1,6 @@
 class Transaction < ActiveRecord::Base
   belongs_to :account
 
-  attr_accessible :amount, :success
-
   include Monetizable
   monetize 'amount'
 

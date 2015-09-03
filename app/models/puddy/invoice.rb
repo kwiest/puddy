@@ -8,7 +8,6 @@ module Puddy
     include Monetizable
     monetize 'amount'
 
-    attr_protected :state
     state_machine initial: :pending do
       state :paid
 

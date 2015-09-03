@@ -9,8 +9,6 @@ module Puddy
     should validate_presence_of :month
     should validate_presence_of :year
 
-    test_monetized_fields 'amount'
-
     def test_setting_amount_on_save
       account = Account.create
 

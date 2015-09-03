@@ -7,7 +7,8 @@ gemspec
 
 # jquery-rails is used by the dummy application
 gem "jquery-rails"
-gem "monetizable", git: "git://github.com/kwiest/monetizable", branch: "master"
+gem "monetizable", github: "kwiest/monetizable"
+gem "responders"
 
 # Declare any dependencies that are still in development here instead of in
 # your gemspec. These might include edge Rails or gems from your path or

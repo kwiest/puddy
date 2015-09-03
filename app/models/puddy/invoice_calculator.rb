@@ -12,7 +12,7 @@ module Puddy
     end
 
     def transactions_total
-      total_cents = invoice.transactions.sum &:amount_cents
+      total_cents = invoice.transactions.sum :amount_cents
       Money.new total_cents
     end
 
