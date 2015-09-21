@@ -9,7 +9,7 @@ module Puddy
     end
 
     def transactions_query
-      sql = %Q[SELECT SUM("amount_cents"), COUNT(*) FROM "online_transactions" WHERE "transactions"."success" = 't']
+      sql = %Q[SELECT SUM("amount_cents"), COUNT(*) FROM "online_transactions" WHERE "online_transactions"."success" = 't']
       @transaction_query ||= OnlineTransaction.find_by_sql(sql).first
     end
 
