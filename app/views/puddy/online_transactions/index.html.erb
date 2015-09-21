@@ -8,8 +8,8 @@
       <span class="account-name"><%= transaction.account.name %></span>
       <span class="amount"><%= transaction.amount.format %></span>
       <span class="description">
-        <%= "#{transaction.payment.source.camp.name} - 
-        #{transaction.payment.source.name}" %>
+        <%= "#{transaction.payment.camper.camp.name} - 
+        #{transaction.payment.camper.name}" %>
       </span>
       <span class="status"><%= 'failed' unless transaction.success? %></span>
       <span class="date"><%= transaction.created_at.strftime("%b %-d, %Y") %></span>
