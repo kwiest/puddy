@@ -9,12 +9,12 @@ module Puddy
     end
 
     def transactions_query
-      sql = %Q[SELECT SUM("amount_cents"), COUNT(*) FROM "transactions" WHERE "transactions"."success" = 't']
-      @transaction_query ||= Transaction.find_by_sql(sql).first
+      sql = %Q[SELECT SUM("amount_cents"), COUNT(*) FROM "online_transactions" WHERE "transactions"."success" = 't']
+      @transaction_query ||= OnlineTransaction.find_by_sql(sql).first
     end
 
     def transactions_this_week
-      Transaction.where(success: true).
+      OnlineTransaction.where(success: true).
         order(:created_at).
         where(created_at: 1.week.ago..Date.today).
         count
