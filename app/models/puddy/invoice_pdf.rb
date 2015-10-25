@@ -17,7 +17,7 @@ module Puddy
     private
 
     def line_items
-      @line_items ||= @invoice.transactions.map { |t| InvoiceLineItem.new(t) }
+      @line_items ||= @invoice.payments.map { |p| InvoiceLineItem.new(p) }
     end
 
     def render_header

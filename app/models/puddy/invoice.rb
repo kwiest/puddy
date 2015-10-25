@@ -18,8 +18,8 @@ module Puddy
 
     before_save :calculate_amount
 
-    def transactions
-      @transactions ||= account.payments.where(
+    def payments
+      @payments ||= account.payments.where(
         payment_type: 'Online Credit Card',
         state: 'paid',
         created_at: start_date..end_date

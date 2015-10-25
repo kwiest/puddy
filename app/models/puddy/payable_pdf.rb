@@ -24,8 +24,8 @@ module Puddy
     def line_items_data
       line_items.map do |li|
         [
-          li.transaction.payment.description,
-          li.transaction.amount.format,
+          li.payment.description,
+          li.payment.amount.format,
           li.gateway_fee.format,
           li.crs_fee.format,
           li.total_due.format

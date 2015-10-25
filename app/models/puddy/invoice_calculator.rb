@@ -12,7 +12,7 @@ module Puddy
     end
 
     def transactions_total
-      total_cents = invoice.transactions.sum :amount_cents
+      total_cents = invoice.payments.sum :amount_cents
       Money.new total_cents
     end
 
@@ -25,7 +25,7 @@ module Puddy
     end
 
     def total_gateway_fees
-      return Money.new(0) if invoice.transactions.empty?
+      return Money.new(0) if invoice.payments.empty?
       return Money.new(0) unless invoice.payable?
       (transactions_total * GATEWAY_PERCENTAGE_FEE) + Money.new(30)
     end

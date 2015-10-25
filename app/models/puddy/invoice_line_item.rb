@@ -3,22 +3,22 @@ module Puddy
     GATEWAY_PERCENTAGE_FEE = 0.029 # 2.9%
     CRS_PERCENTAGE_FEE     = 0.01  # 1%
 
-    attr_reader :transaction
+    attr_reader :payment
 
-    def initialize(transaction)
-      @transaction = transaction
+    def initialize(payment)
+      @payment = payment
     end
 
     def crs_fee
-      transaction.amount * CRS_PERCENTAGE_FEE
+      payment.amount * CRS_PERCENTAGE_FEE
     end
 
     def gateway_fee
-      (transaction.amount * GATEWAY_PERCENTAGE_FEE) + Money.new(30)
+      (payment.amount * GATEWAY_PERCENTAGE_FEE) + Money.new(30)
     end
 
     def total_due
-      if @transaction.account.use_system_gateway?
+      if payment.account.use_system_gateway?
         crs_fee + gateway_fee
       else
         crs_fee
