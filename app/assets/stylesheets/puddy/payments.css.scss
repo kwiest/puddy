@@ -8,10 +8,10 @@
   color: red;
 }
 
-#transactions-list {
+#payments-list {
   margin-bottom: 30px;
 
-  .transaction {
+  .payment {
     margin: 0;
     padding: 6px;
     text-decoration: none;
@@ -58,7 +58,7 @@
       border-top: 1px solid #eee;
     }
 
-    &.failed span {
+    &.declined span {
       color: #ccc;
     }
 
