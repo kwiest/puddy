@@ -1,0 +1,19 @@
+<h1><%= @payment_state %> payments</h1>
+
+<%= will_paginate @payments %>
+
+<div id="payments-list">
+  <% @payments.each do |payment| %>
+    <%= div_for payment, class: payment_class(payment) do %>
+      <span class="account-name"><%= payment.account.name %></span>
+      <span class="amount"><%= payment.amount.format %></span>
+      <span class="description">
+        <%= "#{payment.payment.camper.camp.name} - 
+        #{payment.payment.camper.name}" %>
+      </span>
+      <span class="status"><%= 'failed' unless payment.paid? %></span>
+      <span class="date"><%= payment.created_at.strftime("%b %-d, %Y") %></span>
+      <span class="more"><i class="icon-chevron-right"></i></span>
+    <% end %>
+  <% end %>
+</div>
