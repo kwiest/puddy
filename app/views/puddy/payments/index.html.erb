@@ -8,8 +8,7 @@
       <span class="account-name"><%= payment.account.name %></span>
       <span class="amount"><%= payment.amount.format %></span>
       <span class="description">
-        <%= "#{payment.payment.camper.camp.name} - 
-        #{payment.payment.camper.name}" %>
+        <%= "#{payment.camper.camp.name} - #{payment.camper.name}" %>
       </span>
       <span class="status"><%= payment.state %></span>
       <span class="date"><%= payment.created_at.strftime("%b %-d, %Y") %></span>
