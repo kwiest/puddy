@@ -9,12 +9,14 @@ module Puddy
     end
 
     def transactions_query
-      sql = %Q[SELECT SUM("amount_cents"), COUNT(*) FROM "online_transactions" WHERE "online_transactions"."success" = 't']
-      @transaction_query ||= OnlineTransaction.find_by_sql(sql).first
+      sql = %Q{SELECT SUM("amount_cents"), COUNT(*)
+        FROM "payments" WHERE "payments"."state" = 'paid'
+        AND "payments"."payment_type" = 'Online Credit Card'}
+      @transaction_query ||= Payment.find_by_sql(sql).first
     end
 
     def transactions_this_week
-      OnlineTransaction.where(success: true).
+      Payment.paid.where(payment_type: 'Online Credit Card').
         order(:created_at).
         where(created_at: 1.week.ago..Date.today).
         count
