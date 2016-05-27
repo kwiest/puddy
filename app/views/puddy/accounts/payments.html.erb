@@ -1,0 +1,23 @@
+<h1>Payments for <%= @account.name %></h1>
+
+<form class="form-inline" action="<%= account_payments_path(@account) %>" method="get">
+  <input type="date" name="start_date" value="<%= @start_date %>">
+  to
+  <input type="date" name="end_date" value="<%= @end_date %>">
+  <button type="submit" class="btn">Filter</button>
+</form>
+
+<div id="payments-list">
+  <% @payments.each do |payment| %>
+    <%= div_for payment, class: payment.state do %>
+      <span class="account-name"><%= payment.account.name %></span>
+      <span class="amount"><%= payment.amount.format %></span>
+      <span class="description">
+        <%= "#{payment.camper.camp.name} - #{payment.camper.name}" %>
+      </span>
+      <span class="status"><%= payment.state %></span>
+      <span class="date"><%= payment.created_at.strftime("%b %-d, %Y") %></span>
+      <span class="more"><i class="icon-chevron-right"></i></span>
+    <% end %>
+  <% end %>
+</div>

@@ -5,7 +5,7 @@
     <th>Name</th>
     <th>Camp count</th>
     <th>Camper count</th>
-    <th>Total paid</th>
+    <th>Payments</th>
   </thead>
   <tbody>
     <% @accounts.each do |account| %>
@@ -13,7 +13,7 @@
         <td><%= link_to account.name, account %></td>
         <td><%= account.camps.count %></td>
         <td><%= number_with_delimiter account.campers.count %></td>
-        <td>total paid</td>
+        <td><%= link_to 'Payments', account_payments_path(account) %></td>
       <% end %>
     <% end %>
   </tbody>
