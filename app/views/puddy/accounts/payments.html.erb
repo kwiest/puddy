@@ -7,7 +7,7 @@
   <button type="submit" class="btn">Filter</button>
 </form>
 
-<h2>Total: <%= @payments.inject(Money.new(0)) { |sum, payment| sum += payment.amount }.format %></h2>
+<h2>Total: <%= @payments.paid.inject(Money.new(0)) { |sum, payment| sum += payment.amount }.format %></h2>
 
 <div id="payments-list">
   <% @payments.each do |payment| %>
